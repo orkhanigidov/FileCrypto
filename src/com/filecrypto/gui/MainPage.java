@@ -25,20 +25,15 @@ public class MainPage {
     }
 
     private static void openFileChooser() {
-        fileChooser = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
-        int returnValue = fileChooser.showOpenDialog(null);
-        if (returnValue == JFileChooser.APPROVE_OPTION) {
-            openEncryptPage();
-        }
+        fileChooser = new JFileChooser();
+        fileChooser.showOpenDialog(null);
+        file = fileChooser.getSelectedFile();
+        openEncryptPage();
     }
 
     public String getFileEncoded() {
         return Base64File.encoder(file);
     }
-
-//    public String getFileDecoded() {
-//        return Base64File.decoder(file);
-//    }
 
     public String getName() {
         return fileChooser.getSelectedFile().getName();
@@ -50,7 +45,6 @@ public class MainPage {
     }
 
     public Icon getIcon() {
-        file = new File(fileChooser.getSelectedFile().getAbsolutePath());
         icon = fileChooser.getIcon(file);
         return icon;
     }
