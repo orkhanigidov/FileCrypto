@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 public class MainPage {
     private JButton btnUploadFile;
     private JPanel mainPageView;
+    private static JFrame frame;
 
     public MainPage() {
         btnUploadFile.addActionListener(new ActionListener() {
@@ -23,12 +24,17 @@ public class MainPage {
         JFileChooser fileChooser = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
         int returnValue = fileChooser.showOpenDialog(null);
         if (returnValue == JFileChooser.APPROVE_OPTION) {
-
+            openEncryptPage();
         }
     }
 
+    private static void openEncryptPage() {
+        frame.dispose();
+        new EncryptPage().showEncryptPage();
+    }
+
     public static void main(String[] args) {
-        JFrame frame = new JFrame("FileCrypto");
+        frame = new JFrame("FileCrypto");
         frame.setContentPane(new MainPage().mainPageView);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setPreferredSize(new Dimension(300, 300));

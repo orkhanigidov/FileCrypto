@@ -1,6 +1,7 @@
 package com.filecrypto.gui;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -35,5 +36,14 @@ public class EncryptPage {
 
     private static void encrypt() {
 
+    }
+
+    public void showEncryptPage() {
+        JFrame frame = new JFrame("FileCrypto");
+        frame.setContentPane(new EncryptPage().encryptPageView);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setPreferredSize(new Dimension(300, 300));
+        frame.pack();
+        frame.setVisible(true);
     }
 }
