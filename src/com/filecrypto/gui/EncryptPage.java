@@ -39,7 +39,7 @@ public class EncryptPage {
     }
 
     public void showEncryptPage() {
-        JFrame frame = new JFrame("FileCrypto");
+        JFrame frame = new JFrame("Encryption");
         frame.setContentPane(new EncryptPage().encryptPageView);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setPreferredSize(new Dimension(300, 300));
