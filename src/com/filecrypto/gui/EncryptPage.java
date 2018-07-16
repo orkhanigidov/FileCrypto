@@ -14,12 +14,13 @@ public class EncryptPage {
     private JLabel lblSize;
     private JLabel lblPassword;
     private JLabel lblHint;
+    private static JFrame frame;
 
     public EncryptPage() {
         btnCancel.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                cancel();
             }
         });
         btnEncrypt.addActionListener(new ActionListener() {
@@ -31,7 +32,8 @@ public class EncryptPage {
     }
 
     private static void cancel() {
-
+        frame.dispose();
+        new MainPage().showMainPage();
     }
 
     private static void encrypt() {
@@ -39,7 +41,7 @@ public class EncryptPage {
     }
 
     public void showEncryptPage() {
-        JFrame frame = new JFrame("Encryption");
+        frame = new JFrame("Encryption");
         frame.setContentPane(new EncryptPage().encryptPageView);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setPreferredSize(new Dimension(300, 300));

@@ -33,7 +33,7 @@ public class MainPage {
         new EncryptPage().showEncryptPage();
     }
 
-    public static void main(String[] args) {
+    public void showMainPage() {
         frame = new JFrame("FileCrypto");
         frame.setContentPane(new MainPage().mainPageView);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
