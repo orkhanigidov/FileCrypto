@@ -16,7 +16,8 @@ public class EncryptPage {
     private JPasswordField txtPassword;
     private JTextField txtHint;
     private static JFrame frame;
-    public MainPage mainPage;
+    private static MainPage mainPage;
+    private static JFileChooser fileChooser;
 
     public EncryptPage() {
         mainPage = new MainPage();
@@ -30,7 +31,7 @@ public class EncryptPage {
         btnEncrypt.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                saveFileChooser();
             }
         });
         showInfo();
@@ -43,6 +44,18 @@ public class EncryptPage {
 
     private static void encrypt() {
 
+    }
+
+    private static void saveFileChooser() {
+        fileChooser = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
+        int returnValue = fileChooser.showSaveDialog(null);
+        if (returnValue == JFileChooser.APPROVE_OPTION) {
+            encrypt();
+        }
+    }
+
+    private char[] getPassword() {
+        return txtPassword.getPassword();
     }
 
     public void showInfo() {
