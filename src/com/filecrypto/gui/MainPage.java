@@ -5,11 +5,15 @@ import javax.swing.filechooser.FileSystemView;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 public class MainPage {
     private JButton btnUploadFile;
     private JPanel mainPageView;
     private static JFrame frame;
+    private static JFileChooser fileChooser;
+    private static File file;
+    private static Icon icon;
 
     public MainPage() {
         btnUploadFile.addActionListener(new ActionListener() {
@@ -21,11 +25,26 @@ public class MainPage {
     }
 
     private static void openFileChooser() {
-        JFileChooser fileChooser = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
+        fileChooser = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
         int returnValue = fileChooser.showOpenDialog(null);
         if (returnValue == JFileChooser.APPROVE_OPTION) {
             openEncryptPage();
         }
+    }
+
+    public String getName() {
+        return fileChooser.getSelectedFile().getName();
+    }
+
+    public long getSize() {
+        long fileSize = fileChooser.getSelectedFile().length();
+        return fileSize;
+    }
+
+    public Icon getIcon() {
+        file = new File(fileChooser.getSelectedFile().getAbsolutePath());
+        icon = fileChooser.getIcon(file);
+        return icon;
     }
 
     private static void openEncryptPage() {
