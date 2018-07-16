@@ -40,8 +40,7 @@ public class MainPage {
     }
 
     public long getSize() {
-        long fileSize = fileChooser.getSelectedFile().length();
-        return fileSize;
+        return fileChooser.getSelectedFile().length();
     }
 
     public Icon getIcon() {
