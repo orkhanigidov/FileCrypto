@@ -31,10 +31,6 @@ public class MainPage {
         openEncryptPage();
     }
 
-    public String getFileEncoded() {
-        return Base64File.encoder(file);
-    }
-
     public static File getFile() {
         return file;
     }
