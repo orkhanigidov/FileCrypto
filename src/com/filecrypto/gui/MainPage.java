@@ -44,8 +44,7 @@ public class MainPage {
     }
 
     public Icon getIcon() {
-        icon = fileChooser.getIcon(file);
-        return icon;
+        return fileChooser.getIcon(file);
     }
 
     private static void openEncryptPage() {
