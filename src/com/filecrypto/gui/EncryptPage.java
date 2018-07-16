@@ -1,7 +1,6 @@
 package com.filecrypto.gui;
 
 import javax.swing.*;
-import javax.swing.filechooser.FileSystemView;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -31,8 +30,7 @@ public class EncryptPage {
         btnEncrypt.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-//                saveFileChooser();
-                encrypt();
+                saveFileChooser();
             }
         });
         showInfo();
@@ -44,15 +42,13 @@ public class EncryptPage {
     }
 
     private static void encrypt() {
-        System.out.println(mainPage.getFileEncoded());
+        AES.encrypt();
     }
 
     private static void saveFileChooser() {
-        fileChooser = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
-        int returnValue = fileChooser.showSaveDialog(null);
-        if (returnValue == JFileChooser.APPROVE_OPTION) {
-            encrypt();
-        }
+        fileChooser = new JFileChooser();
+        fileChooser.showSaveDialog(null);
+        encrypt();
     }
 
     private char[] getPassword() {
