@@ -35,6 +35,14 @@ public class MainPage {
         return Base64File.encoder(file);
     }
 
+    public static File getFile() {
+        return file;
+    }
+
+    public static void setFile(File file) {
+        MainPage.file = file;
+    }
+
     public String getName() {
         return fileChooser.getSelectedFile().getName();
     }
