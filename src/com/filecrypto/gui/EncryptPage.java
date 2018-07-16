@@ -11,6 +11,8 @@ public class EncryptPage {
     private JLabel lblIcon;
     private JLabel lblName;
     private JLabel lblSize;
+    private JLabel lblPassword;
+    private JLabel lblHint;
 
     public EncryptPage() {
         btnCancel.addActionListener(new ActionListener() {
