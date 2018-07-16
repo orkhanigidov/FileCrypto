@@ -31,7 +31,8 @@ public class EncryptPage {
         btnEncrypt.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                saveFileChooser();
+//                saveFileChooser();
+                encrypt();
             }
         });
         showInfo();
@@ -43,7 +44,7 @@ public class EncryptPage {
     }
 
     private static void encrypt() {
-
+        System.out.println(mainPage.getFileEncoded());
     }
 
     private static void saveFileChooser() {
@@ -68,7 +69,7 @@ public class EncryptPage {
         frame = new JFrame("Encryption");
         frame.setContentPane(new EncryptPage().encryptPageView);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setPreferredSize(new Dimension(500, 500));
+        frame.setPreferredSize(new Dimension(300, 300));
         frame.pack();
         frame.setVisible(true);
     }

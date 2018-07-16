@@ -32,6 +32,14 @@ public class MainPage {
         }
     }
 
+    public String getFileEncoded() {
+        return Base64File.encoder(file);
+    }
+
+//    public String getFileDecoded() {
+//        return Base64File.decoder(file);
+//    }
+
     public String getName() {
         return fileChooser.getSelectedFile().getName();
     }
