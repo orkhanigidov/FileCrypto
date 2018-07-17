@@ -39,11 +39,11 @@ public class EncryptPage {
         new MainPage().showMainPage();
     }
 
-    private static void encrypt(String filePath) {
-        AES.encrypt("NiTh525223121212", filePath);
+    private void encrypt(String filePath) {
+        AES.encrypt(String.valueOf(txtPassword.getPassword()), filePath);
     }
 
-    private static void saveFileChooser() {
+    private void saveFileChooser() {
         fileChooser = new JFileChooser();
         fileChooser.showSaveDialog(null);
         encrypt(fileChooser.getSelectedFile().getAbsolutePath());
