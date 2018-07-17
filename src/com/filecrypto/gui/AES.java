@@ -3,6 +3,7 @@ package com.filecrypto.gui;
 import javax.crypto.Cipher;
 import javax.crypto.CipherOutputStream;
 import javax.crypto.spec.SecretKeySpec;
+import javax.swing.*;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
@@ -24,9 +25,9 @@ public class AES {
             fileInputStream.close();
             fileOutputStream.flush();
             cipherOutputStream.close();
-            System.out.println("success");
-        } catch (Exception ex) {
-            System.out.println(ex);
-        }
+            JOptionPane.showMessageDialog(null,
+                    "Your file has been successfully encrypted",
+                    "Encryption", JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception ex) {}
     }
 }
