@@ -30,11 +30,22 @@ public class DecryptPage {
 
             }
         });
+        showInfo();
     }
 
     private static void cancel() {
         frame.dispose();
         new MainPage().showMainPage();
+    }
+
+    private static void decrypt(String filePath) {
+
+    }
+
+    public void showInfo() {
+        lblName.setText(MainPage.getName());
+        lblSize.setText(MainPage.getSize() + "");
+        lblIcon.setIcon(MainPage.getIcon());
     }
 
     public void showDecryptPage() {
