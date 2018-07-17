@@ -26,7 +26,16 @@ public class MainPage {
         fileChooser = new JFileChooser();
         fileChooser.showOpenDialog(null);
         file = fileChooser.getSelectedFile();
-        openEncryptPage();
+        if (getExtension().equals("secret")) {
+            openDecryptPage();
+        } else {
+            openEncryptPage();
+        }
+    }
+
+    private static String getExtension() {
+        String[] array = file.getName().split("\\.");
+        return array[1];
     }
 
     public static File getFile() {
