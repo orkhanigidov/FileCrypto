@@ -9,10 +9,10 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
 public class AES {
-    public static void encrypt(String myKey, String filePath) {
+    public static void encrypt(String myKey, String fileName) {
         try {
             FileInputStream fileInputStream = new FileInputStream(MainPage.getFile().getAbsolutePath());
-            FileOutputStream fileOutputStream = new FileOutputStream(filePath + ".secret");
+            FileOutputStream fileOutputStream = new FileOutputStream(fileName + ".secret");
             byte[] key = myKey.getBytes();
             SecretKeySpec keySpec = new SecretKeySpec(key, "AES");
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
@@ -32,10 +32,10 @@ public class AES {
         } catch (Exception ex) {}
     }
 
-    public static void decrypt(String myKey, String filePath) {
+    public static void decrypt(String myKey, String fileName) {
         try {
             FileInputStream fileInputStream = new FileInputStream(MainPage.getFile().getAbsolutePath());
-            FileOutputStream fileOutputStream = new FileOutputStream(filePath + ".png");
+            FileOutputStream fileOutputStream = new FileOutputStream(fileName);
             byte[] key = myKey.getBytes();
             SecretKeySpec keySpec = new SecretKeySpec(key, "AES");
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");

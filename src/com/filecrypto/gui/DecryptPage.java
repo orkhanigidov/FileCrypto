@@ -38,8 +38,8 @@ public class DecryptPage {
         new MainPage().showMainPage();
     }
 
-    private void decrypt(String filePath) {
-        AES.decrypt(String.valueOf(txtPassword.getPassword()), filePath);
+    private void decrypt(String fileName) {
+        AES.decrypt(String.valueOf(txtPassword.getPassword()), fileName);
     }
 
     private void saveFileChooser() {

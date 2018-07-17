@@ -39,8 +39,8 @@ public class EncryptPage {
         new MainPage().showMainPage();
     }
 
-    private void encrypt(String filePath) {
-        AES.encrypt(String.valueOf(txtPassword.getPassword()), filePath);
+    private void encrypt(String fileName) {
+        AES.encrypt(String.valueOf(txtPassword.getPassword()), fileName);
     }
 
     private void saveFileChooser() {
