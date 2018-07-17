@@ -45,6 +45,7 @@ public class EncryptPage {
 
     private void saveFileChooser() {
         fileChooser = new JFileChooser();
+        fileChooser.setSelectedFile(new File(MainPage.getFile().getName()));
         int returnVal = fileChooser.showSaveDialog(null);
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             encrypt(fileChooser.getSelectedFile().getAbsolutePath());
