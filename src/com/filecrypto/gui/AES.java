@@ -11,7 +11,7 @@ public class AES {
     public static void encrypt(String myKey, String filePath) {
         try {
             FileInputStream fileInputStream = new FileInputStream(MainPage.getFile().getAbsolutePath());
-            FileOutputStream fileOutputStream = new FileOutputStream(filePath);
+            FileOutputStream fileOutputStream = new FileOutputStream(filePath + ".secret");
             byte[] key = myKey.getBytes();
             SecretKeySpec keySpec = new SecretKeySpec(key, "AES");
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
