@@ -44,12 +44,10 @@ public class DecryptPage {
 
     private void saveFileChooser() {
         fileChooser = new JFileChooser();
-        fileChooser.showSaveDialog(null);
-        decrypt(fileChooser.getSelectedFile().getAbsolutePath());
-    }
-
-    private char[] getPassword() {
-        return txtPassword.getPassword();
+        int returnVal = fileChooser.showSaveDialog(null);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            decrypt(fileChooser.getSelectedFile().getAbsolutePath());
+        }
     }
 
     public void showInfo() {

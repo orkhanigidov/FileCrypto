@@ -52,8 +52,6 @@ public class AES {
             JOptionPane.showMessageDialog(null,
                     "Your file has been successfully decrypted",
                     "Decryption", JOptionPane.INFORMATION_MESSAGE);
-        } catch (Exception ex) {
-            System.out.println(ex);
-        }
+        } catch (Exception ex) {}
     }
 }

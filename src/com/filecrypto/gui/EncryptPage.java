@@ -45,12 +45,10 @@ public class EncryptPage {
 
     private void saveFileChooser() {
         fileChooser = new JFileChooser();
-        fileChooser.showSaveDialog(null);
-        encrypt(fileChooser.getSelectedFile().getAbsolutePath());
-    }
-
-    private char[] getPassword() {
-        return txtPassword.getPassword();
+        int returnVal = fileChooser.showSaveDialog(null);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            encrypt(fileChooser.getSelectedFile().getAbsolutePath());
+        }
     }
 
     public void showInfo() {

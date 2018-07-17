@@ -24,12 +24,14 @@ public class MainPage {
 
     private static void openFileChooser() {
         fileChooser = new JFileChooser();
-        fileChooser.showOpenDialog(null);
-        file = fileChooser.getSelectedFile();
-        if (getExtension().equals("secret")) {
-            openDecryptPage();
-        } else {
-            openEncryptPage();
+        int returnVal = fileChooser.showOpenDialog(null);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            file = fileChooser.getSelectedFile();
+            if (getExtension().equals("secret")) {
+                openDecryptPage();
+            } else {
+                openEncryptPage();
+            }
         }
     }
 
