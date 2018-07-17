@@ -27,7 +27,7 @@ public class DecryptPage {
         btnDecrypt.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                saveFileChooser();
             }
         });
         showInfo();
@@ -38,8 +38,18 @@ public class DecryptPage {
         new MainPage().showMainPage();
     }
 
-    private static void decrypt(String filePath) {
+    private void decrypt(String filePath) {
+        AES.decrypt(String.valueOf(txtPassword.getPassword()), filePath);
+    }
 
+    private void saveFileChooser() {
+        fileChooser = new JFileChooser();
+        fileChooser.showSaveDialog(null);
+        decrypt(fileChooser.getSelectedFile().getAbsolutePath());
+    }
+
+    private char[] getPassword() {
+        return txtPassword.getPassword();
     }
 
     public void showInfo() {
