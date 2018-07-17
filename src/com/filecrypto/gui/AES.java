@@ -18,7 +18,7 @@ public class AES {
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
             cipher.init(Cipher.ENCRYPT_MODE, keySpec, new IvParameterSpec(new byte[16]));
             CipherOutputStream cipherOutputStream = new CipherOutputStream(fileOutputStream, cipher);
-            byte[] buf = new byte[8];
+            byte[] buf = new byte[1024];
             int read;
             while ((read = fileInputStream.read(buf)) != -1) {
                 cipherOutputStream.write(buf, 0, read);
@@ -41,7 +41,7 @@ public class AES {
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
             cipher.init(Cipher.DECRYPT_MODE, keySpec, new IvParameterSpec(new byte[16]));
             CipherOutputStream cipherOutputStream = new CipherOutputStream(fileOutputStream, cipher);
-            byte[] buf = new byte[8];
+            byte[] buf = new byte[1024];
             int read;
             while ((read = fileInputStream.read(buf)) != -1) {
                 cipherOutputStream.write(buf, 0, read);
