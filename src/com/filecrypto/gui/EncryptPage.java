@@ -15,12 +15,9 @@ public class EncryptPage {
     private JPasswordField txtPassword;
     private JTextField txtHint;
     private static JFrame frame;
-    private static MainPage mainPage;
     private static JFileChooser fileChooser;
 
     public EncryptPage() {
-        mainPage = new MainPage();
-
         btnCancel.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -56,9 +53,9 @@ public class EncryptPage {
     }
 
     public void showInfo() {
-        lblName.setText(mainPage.getName());
-        lblSize.setText(mainPage.getSize() + "");
-        lblIcon.setIcon(mainPage.getIcon());
+        lblName.setText(MainPage.getName());
+        lblSize.setText(MainPage.getSize() + "");
+        lblIcon.setIcon(MainPage.getIcon());
     }
 
     public void showEncryptPage() {

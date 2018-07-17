@@ -1,7 +1,6 @@
 package com.filecrypto.gui;
 
 import javax.swing.*;
-import javax.swing.filechooser.FileSystemView;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,7 +12,6 @@ public class MainPage {
     private static JFrame frame;
     private static JFileChooser fileChooser;
     private static File file;
-    private static Icon icon;
 
     public MainPage() {
         btnUploadFile.addActionListener(new ActionListener() {
@@ -35,19 +33,15 @@ public class MainPage {
         return file;
     }
 
-    public static void setFile(File file) {
-        MainPage.file = file;
-    }
-
-    public String getName() {
+    public static String getName() {
         return fileChooser.getSelectedFile().getName();
     }
 
-    public long getSize() {
+    public static long getSize() {
         return fileChooser.getSelectedFile().length();
     }
 
-    public Icon getIcon() {
+    public static Icon getIcon() {
         return fileChooser.getIcon(file);
     }
 
