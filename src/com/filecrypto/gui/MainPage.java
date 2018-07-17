@@ -50,6 +50,11 @@ public class MainPage {
         new EncryptPage().showEncryptPage();
     }
 
+    private static void openDecryptPage() {
+        frame.dispose();
+        new DecryptPage().showDecryptPage();
+    }
+
     public void showMainPage() {
         frame = new JFrame("FileCrypto");
         frame.setContentPane(new MainPage().mainPageView);
