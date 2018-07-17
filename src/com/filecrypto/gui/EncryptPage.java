@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 public class EncryptPage {
     private JPanel encryptPageView;
@@ -38,14 +39,14 @@ public class EncryptPage {
         new MainPage().showMainPage();
     }
 
-    private static void encrypt() {
-        AES.encrypt();
+    private static void encrypt(String filePath) {
+        AES.encrypt("NiTh525223121212", filePath);
     }
 
     private static void saveFileChooser() {
         fileChooser = new JFileChooser();
         fileChooser.showSaveDialog(null);
-        encrypt();
+        encrypt(fileChooser.getSelectedFile().getAbsolutePath());
     }
 
     private char[] getPassword() {
