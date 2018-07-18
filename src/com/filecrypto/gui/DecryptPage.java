@@ -14,6 +14,7 @@ public class DecryptPage {
     private JButton btnCancel;
     private JButton btnDecrypt;
     private JPasswordField txtPassword;
+    private JCheckBox check;
     private static JFrame frame;
     private static JFileChooser fileChooser;
 
@@ -31,6 +32,16 @@ public class DecryptPage {
             }
         });
         showInfo();
+        check.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (check.isSelected()) {
+                    txtPassword.setEchoChar((char)0);
+                } else {
+                    txtPassword.setEchoChar('●');
+                }
+            }
+        });
     }
 
     private static void cancel() {
