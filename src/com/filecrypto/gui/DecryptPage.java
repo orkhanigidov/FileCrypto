@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 public class DecryptPage {
     private JPanel decryptPageView;
@@ -44,6 +45,8 @@ public class DecryptPage {
 
     private void saveFileChooser() {
         fileChooser = new JFileChooser();
+        fileChooser.setSelectedFile(new File(MainPage.getFile().getName()
+                .replace(".secret", "")));
         int returnVal = fileChooser.showSaveDialog(null);
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             decrypt(fileChooser.getSelectedFile().getAbsolutePath());
