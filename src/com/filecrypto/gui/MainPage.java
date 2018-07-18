@@ -27,7 +27,7 @@ public class MainPage {
         int returnVal = fileChooser.showOpenDialog(null);
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             file = fileChooser.getSelectedFile();
-            if (getExtension().equals("secret")) {
+            if (getExtension()) {
                 openDecryptPage();
             } else {
                 openEncryptPage();
@@ -35,9 +35,8 @@ public class MainPage {
         }
     }
 
-    private static String getExtension() {
-        String[] array = file.getName().split("\\.");
-        return array[1];
+    private static boolean getExtension() {
+        return file.getName().contains(".secret");
     }
 
     public static File getFile() {
