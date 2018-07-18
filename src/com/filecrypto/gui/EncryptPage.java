@@ -14,7 +14,6 @@ public class EncryptPage {
     private JLabel lblName;
     private JLabel lblSize;
     private JPasswordField txtPassword;
-    private JTextField txtHint;
     private static JFrame frame;
     private static JFileChooser fileChooser;
 
