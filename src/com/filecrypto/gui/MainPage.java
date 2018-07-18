@@ -70,6 +70,7 @@ public class MainPage {
         frame.setContentPane(new MainPage().mainPageView);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setPreferredSize(new Dimension(300, 300));
+        frame.setResizable(false);
         frame.pack();
         frame.setVisible(true);
     }

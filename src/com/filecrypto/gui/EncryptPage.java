@@ -63,6 +63,7 @@ public class EncryptPage {
         frame.setContentPane(new EncryptPage().encryptPageView);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setPreferredSize(new Dimension(300, 300));
+        frame.setResizable(false);
         frame.pack();
         frame.setVisible(true);
     }
