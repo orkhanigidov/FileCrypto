@@ -6,6 +6,7 @@ import com.filecrypto.mainpage.Main;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import javafx.scene.layout.GridPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -18,6 +19,8 @@ public class DecryptController {
     private Label name;
     @FXML
     private Label size;
+    @FXML
+    private GridPane gridPane;
     private static FileChooser fileChooser;
     private static File selectedFile;
     private static Stage stage = new Stage();
@@ -54,7 +57,7 @@ public class DecryptController {
         fileChooser = new FileChooser();
         fileChooser.setInitialFileName(com.filecrypto.mainpage.Controller.getName()
                 .replace(".secret", ""));
-        selectedFile = fileChooser.showSaveDialog(null);
+        selectedFile = fileChooser.showSaveDialog(gridPane.getScene().getWindow());
         if (selectedFile != null) {
             decrypt(selectedFile.getAbsolutePath());
         }

@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import javafx.scene.layout.GridPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -23,6 +24,8 @@ public class EncryptController {
     private CheckBox check;
     @FXML
     private Label icon;
+    @FXML
+    private GridPane gridPane;
     private static FileChooser fileChooser;
     private static File selectedFile;
     private static Stage stage = new Stage();
@@ -64,7 +67,7 @@ public class EncryptController {
     private void saveFileChooser() {
         fileChooser = new FileChooser();
         fileChooser.setInitialFileName(com.filecrypto.mainpage.Controller.getName());
-        selectedFile = fileChooser.showSaveDialog(null);
+        selectedFile = fileChooser.showSaveDialog(gridPane.getScene().getWindow());
         if (selectedFile != null) {
             encrypt(selectedFile.getAbsolutePath());
         }

@@ -2,6 +2,8 @@ package com.filecrypto.mainpage;
 
 import com.filecrypto.decryptpage.DecryptMain;
 import com.filecrypto.encryptpage.EncryptMain;
+import javafx.fxml.FXML;
+import javafx.scene.layout.GridPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -11,6 +13,8 @@ public class Controller {
     private static FileChooser fileChooser;
     private static File selectedFile;
     private static Stage stage = new Stage();
+    @FXML
+    private GridPane gridPane;
 
     public void onUploadFile() {
         openFileChooser();
@@ -18,7 +22,7 @@ public class Controller {
 
     private void openFileChooser() {
         fileChooser = new FileChooser();
-        selectedFile = fileChooser.showOpenDialog(null);
+        selectedFile = fileChooser.showOpenDialog(gridPane.getScene().getWindow());
         if (selectedFile != null) {
             if (getExtension()) {
                 openDecryptPage();
