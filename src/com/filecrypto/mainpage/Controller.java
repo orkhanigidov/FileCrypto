@@ -22,6 +22,12 @@ public class Controller {
 
     private void openFileChooser() {
         fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("All files", "*.*"),
+                new FileChooser.ExtensionFilter("Images", "*.jpg", "*.png", "*.gif"),
+                new FileChooser.ExtensionFilter("PDF", "*.pdf"),
+                new FileChooser.ExtensionFilter("Zip", "*.zip")
+        );
         selectedFile = fileChooser.showOpenDialog(gridPane.getScene().getWindow());
         if (selectedFile != null) {
             if (getExtension()) {
