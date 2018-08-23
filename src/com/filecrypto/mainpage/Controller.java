@@ -6,8 +6,8 @@ import javafx.fxml.FXML;
 import javafx.scene.layout.GridPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-
 import java.io.File;
+import java.util.List;
 
 public class Controller {
     private static FileChooser fileChooser;
@@ -24,17 +24,20 @@ public class Controller {
         fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("All files", "*.*"),
-                new FileChooser.ExtensionFilter("Images", "*.jpg", "*.png", "*.gif"),
                 new FileChooser.ExtensionFilter("PDF", "*.pdf"),
-                new FileChooser.ExtensionFilter("Zip", "*.zip")
+                new FileChooser.ExtensionFilter("Zip", "*.zip"),
+                new FileChooser.ExtensionFilter("Images", "*.jpg", "*.png", "*.gif")
         );
-        selectedFile = fileChooser.showOpenDialog(gridPane.getScene().getWindow());
+        List<File> selectedFile = fileChooser.showOpenMultipleDialog(gridPane.getScene().getWindow());
         if (selectedFile != null) {
-            if (getExtension()) {
-                openDecryptPage();
-            } else {
-                openEncryptPage();
+            for (int i = 0; i < selectedFile.size(); i++) {
+                System.out.println(selectedFile.get(i));
             }
+//            if (getExtension()) {
+//                openDecryptPage();
+//            } else {
+//                openEncryptPage();
+//            }
         }
     }
 
