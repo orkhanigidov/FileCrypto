@@ -7,7 +7,6 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import java.io.File;
-import java.util.List;
 
 public class Controller {
     private static FileChooser fileChooser;
@@ -28,16 +27,13 @@ public class Controller {
                 new FileChooser.ExtensionFilter("Zip", "*.zip"),
                 new FileChooser.ExtensionFilter("Images", "*.jpg", "*.png", "*.gif")
         );
-        List<File> selectedFile = fileChooser.showOpenMultipleDialog(gridPane.getScene().getWindow());
+        selectedFile = fileChooser.showOpenDialog(gridPane.getScene().getWindow());
         if (selectedFile != null) {
-            for (int i = 0; i < selectedFile.size(); i++) {
-                System.out.println(selectedFile.get(i));
+            if (getExtension()) {
+                openDecryptPage();
+            } else {
+                openEncryptPage();
             }
-//            if (getExtension()) {
-//                openDecryptPage();
-//            } else {
-//                openEncryptPage();
-//            }
         }
     }
 
