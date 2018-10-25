@@ -15,9 +15,9 @@ public class DecryptController {
     @FXML
     private PasswordField passwordField;
     @FXML
-    private Label name;
+    private Label lblName;
     @FXML
-    private Label size;
+    private Label lblSize;
     @FXML
     private GridPane gridPane;
     private static FileChooser fileChooser;
@@ -30,8 +30,8 @@ public class DecryptController {
     }
 
     public void showInfo() {
-        name.setText(Controller.getName());
-        size.setText(Controller.getSize() + "");
+        lblName.setText(Controller.getName());
+        lblSize.setText(Controller.getSize() + "");
     }
 
     public void onCancel() {
